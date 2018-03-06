@@ -10,11 +10,19 @@
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"sourceTemplate": {
-			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.40.12"
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"Northwind": {
+				"uri": "/Northwind/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -30,13 +38,8 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_belize"
-
-		]
+		"supportedThemes": ["sap_hcb", "sap_belize"]
 	},
-
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "sapui5.app102.view.zjsv_102_container",
@@ -64,6 +67,9 @@
 				"settings": {
 					"bundleName": "sapui5.app102.i18n.i18n"
 				}
+			},
+			"Northwind": {
+				"dataSource": "Northwind"
 			}
 		},
 		"resources": {
@@ -79,31 +85,27 @@
 				"routerClass": "sap.m.routing.Router"
 			},
 			"routes": [{
+				"pattern": "",
+				"name": "masterView01",
+				"view": "zjsv_102_master_01",
+				"targetAggregation": "masterPages",
+				"subroutes": [{
 					"pattern": "",
-					"name": "masterView01",
-					"view": "zjsv_102_master_01",
-					"targetAggregation": "masterPages",
-
-					"subroutes": [{
-						"pattern": "",
-						"name": "firstView",
-						"view": "zjsv_102_detail_0101",
-						"targetAggregation": "detailPages"
-					}, {
-						"pattern": "second",
-						"name": "secondView",
-						"view": "zjsv_102_detail_0102",
-						"targetAggregation": "detailPages"
-					}]
-				},
-
-				{
-					"pattern": ":all*:",
-					"name": "NotFound",
-					"view": "zjs_view_not_found",
-					"targetAggregation": "pages"
-				}
-			]
+					"name": "firstView",
+					"view": "zjsv_102_detail_0101",
+					"targetAggregation": "detailPages"
+				}, {
+					"pattern": "second",
+					"name": "secondView",
+					"view": "zjsv_102_detail_0102",
+					"targetAggregation": "detailPages"
+				}]
+			}, {
+				"pattern": ":all*:",
+				"name": "NotFound",
+				"view": "zjs_view_not_found",
+				"targetAggregation": "pages"
+			}]
 		}
 	}
 }

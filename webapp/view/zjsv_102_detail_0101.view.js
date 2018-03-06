@@ -13,9 +13,26 @@ sap.ui.jsview("sapui5.app102.view.zjsv_102_detail_0101", {
 	 * @memberOf sapui5.app102.view.zjsv_102_detail_0101
 	 */
 	createContent: function(oController) {
+		
+		var oList = new sap.m.List("idListCust",{
+			items : {
+				path : "Northwind>/Customers",
+				template : new sap.m.ObjectListItem("idObjectList", {
+					title : "{Northwind>CustomerID}",
+					type : "Active",
+					press: [oController.onSelectCust],
+					attributes : [ 
+					               { 	"text" : "{Northwind>ContactName}" },
+					               {	"text" : "{Northwind>CompanyName}" 		} ]
+				})
+			}
+		});
+		
+		
+		
 		return new sap.m.Page({
 			title: "Detail Title 1",
-			content: []
+			content: [oList]
 		});
 	}
 
