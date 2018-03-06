@@ -1,0 +1,109 @@
+{
+	"_version": "1.5.0",
+	"sap.app": {
+		"id": "sapui5.app102",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+
+		]
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "sapui5.app102.view.zjsv_102_container",
+			"type": "JS"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sapui5.app102.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"viewType": "JS",
+				"viewPath": "sapui5.app102.view",
+				"targetControl": "splitAppCont",
+				"routerClass": "sap.m.routing.Router"
+			},
+			"routes": [{
+					"pattern": "",
+					"name": "masterView01",
+					"view": "zjsv_102_master_01",
+					"targetAggregation": "masterPages",
+
+					"subroutes": [{
+						"pattern": "",
+						"name": "firstView",
+						"view": "zjsv_102_detail_0101",
+						"targetAggregation": "detailPages"
+					}, {
+						"pattern": "second",
+						"name": "secondView",
+						"view": "zjsv_102_detail_0102",
+						"targetAggregation": "detailPages"
+					}]
+				},
+
+				{
+					"pattern": ":all*:",
+					"name": "NotFound",
+					"view": "zjs_view_not_found",
+					"targetAggregation": "pages"
+				}
+			]
+		}
+	}
+}
