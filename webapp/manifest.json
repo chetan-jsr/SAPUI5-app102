@@ -81,30 +81,48 @@
 			"config": {
 				"viewType": "JS",
 				"viewPath": "sapui5.app102.view",
-				"targetControl": "splitAppCont",
+				"targetControl": "appCont",
 				"routerClass": "sap.m.routing.Router"
 			},
 			"routes": [{
 				"pattern": "",
-				"name": "masterView01",
-				"view": "zjsv_102_master_01",
-				"targetAggregation": "masterPages",
+				"name": "choice",
+				"view": "zjsv_102_view_01",
+				"targetAggregation": "pages"
+			},
+			{
+				"pattern": "northwind",
+				"name": "northwind",
+				"view": "zjsv_102_split_container",
+				"targetControl": "appCont",
+				"targetAggregation": "pages",
+			
 				"subroutes": [{
-					"pattern": "",
-					"name": "firstView",
-					"view": "zjsv_102_detail_0101",
-					"targetAggregation": "detailPages"
-				}, {
+					"pattern": "northwind/",
+					"name": "northwind",
+					"view": "zjsv_102_master_01",
+					"targetControl": "splitAppCont",
+					"targetAggregation": "masterPages",
+					"subroutes":[{
+						"pattern": "northwind/",
+						"name": "northwind",
+						"view": "zjsv_102_detail_0101",
+						"targetControl": "splitAppCont",
+						"targetAggregation": "detailPages"
+					},
+					{
 					"pattern": "second",
 					"name": "secondView",
 					"view": "zjsv_102_detail_0102",
 					"targetAggregation": "detailPages"
+					}]
 				}]
-			}, {
-				"pattern": ":all*:",
-				"name": "NotFound",
-				"view": "zjs_view_not_found",
-				"targetAggregation": "pages"
+			},
+			{
+            "pattern": ":all*:",
+            "name": "NotFound",
+            "view": "zjs_view_not_found",
+            "targetAggregation": "pages"
 			}]
 		}
 	}

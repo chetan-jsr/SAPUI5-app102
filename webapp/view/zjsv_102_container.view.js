@@ -14,7 +14,7 @@ sap.ui.jsview("sapui5.app102.view.zjsv_102_container", {
 	 */
 	createContent: function(oController) {
 				this.setDisplayBlock(true);
-				return sap.m.SplitApp("splitAppCont");
+				return sap.m.App("appCont");
 	}
 
 });
