@@ -13,13 +13,28 @@ sap.ui.jsview("sapui5.app102.view.zjsv_102_master_01", {
 	 * @memberOf sapui5.app102.view.zjsv_102_master_01
 	 */
 	createContent: function(oController) {
-			
+		
+		var oNWListEntity = new sap.m.List("idEntityList",{
+			items : {
+				path : "NWList>/NWEntityList",
+				template : new sap.m.ObjectListItem("idObjectNWEntityList", {
+					title : "{NWList>EntityName}",
+					type : "Active",
+					press: [oController.onSelectCust]
+					// attributes : [ 
+					//               { 	"text" : "{Northwind>ContactName}" },
+					//               {	"text" : "{Northwind>CompanyName}" 		} ]
+				})
+			}
+		});
+		
 			
 			
 		return new sap.m.Page({
 			title: "Master Title 1",
-			content: [
-			          		]
+			content: [	
+						oNWListEntity
+			          ]
 		});
 	}
 

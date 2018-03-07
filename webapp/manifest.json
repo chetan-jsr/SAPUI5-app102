@@ -14,7 +14,7 @@
 			"version": "0.0.0"
 		},
 		"dataSources": {
-			"Northwind": {
+			"NorthwindDS": {
 				"uri": "/Northwind/V2/Northwind/Northwind.svc/",
 				"type": "OData",
 				"settings": {
@@ -68,8 +68,12 @@
 					"bundleName": "sapui5.app102.i18n.i18n"
 				}
 			},
+			"NWList":	{
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "sapui5.app102.model.zjson_102_model_01"
+			},
 			"Northwind": {
-				"dataSource": "Northwind"
+				"dataSource": "NorthwindDS"
 			}
 		},
 		"resources": {
