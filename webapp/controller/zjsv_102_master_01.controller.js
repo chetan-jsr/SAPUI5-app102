@@ -4,7 +4,27 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("sapui5.app102.controller.zjsv_102_master_01", {
-
+		
+		onSelectNWEntity: function(oEvent)	{
+			var oContext = oEvent.getSource().getBindingContext("NWList");
+			if ( oContext !== null || oContext !== undefined )
+			{
+				var sSelectedEntity = oContext.getProperty("EntityName");
+				
+				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				
+				if ( oRouter !== null || oRouter !== undefined )
+				{
+					switch (sSelectedEntity)
+					{
+						case "Customers":
+							oRouter.navTo("nwCust");
+							break;
+					}
+				}
+			}
+		}
+		
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.

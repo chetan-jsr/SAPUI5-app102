@@ -1,0 +1,50 @@
+{
+	"SAPES5_Entity": [{
+						"EntityName": "ContactPersonCollection"
+						}, 
+						{
+						"EntityName": "BusinessPartnerCollection"
+						}, {
+						"EntityName": "AddressTypeCollection"
+						}, {
+						"EntityName": "BusinessPartnerRoleCollection"
+						}, {
+						"EntityName": "GenderCollection"
+						}, {
+						"EntityName": "CountryCollection"
+						}, {
+						"EntityName": "LanguageCollection"
+						}, {
+						"EntityName": "ProductCollection"
+						}, {
+						"EntityName": "ConversionFactorCollection"
+						}, {
+						"EntityName": "TariffCollection"
+						}, {
+						"EntityName": "WeightUnitCollection"
+						}, {
+						"EntityName": "DimensionUnitCollection"
+						}, {
+						"EntityName": "QuantityUnitCollection"
+						}, {
+						"EntityName": "SourceUnitCollection"
+						}, {
+						"EntityName": "TargetUnitCollection"
+						}, {
+						"EntityName": "ProductTypeCollection"
+						}, {
+						"EntityName": "ProductCategoryCollection"
+						}, {
+						"EntityName": "SalesOrderLineItemCollection"
+						}, {
+						"EntityName": "SalesOrderCollection"
+						}, {
+						"EntityName": "StatusCollection"
+						}, {
+						"EntityName": "DeliveryStatusCollection"
+						}, {
+						"EntityName": "BillingStatusCollection"
+						}, {
+						"EntityName": "CurrencyCollection"
+						}]
+}

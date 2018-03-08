@@ -20,6 +20,14 @@
 				"settings": {
 					"odataVersion": "2.0"
 				}
+			},
+			"SAPES5_Gateway": {
+				"uri": "/Gateway_SAPES5/sap/opu/odata/IWBEP/GWDEMO/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/GWDEMO/metadata.xml"
+				}
 			}
 		}
 	},
@@ -38,7 +46,10 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": ["sap_hcb", "sap_belize"]
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -68,18 +79,27 @@
 					"bundleName": "sapui5.app102.i18n.i18n"
 				}
 			},
-			"NWList":	{
+			"NWList": {
 				"type": "sap.ui.model.json.JSONModel",
-				"uri": "sapui5.app102.model.zjson_102_model_01"
+				"uri": "model/zjson_102_model_01.json"
 			},
 			"Northwind": {
 				"dataSource": "NorthwindDS"
+			},
+			"ES5List":	{
+				"type":	"sap.ui.model.json.JSONModel",
+				"uri":	"model/zjson_102_model_es5.json"
+			},
+			"ES5":{
+				"dataSource":"SAPES5_Gateway"
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -88,46 +108,91 @@
 				"targetControl": "appCont",
 				"routerClass": "sap.m.routing.Router"
 			},
-			"routes": [{
-				"pattern": "",
-				"name": "choice",
-				"view": "zjsv_102_view_01",
-				"targetAggregation": "pages"
-			},
-			{
-				"pattern": "northwind",
-				"name": "northwind",
-				"view": "zjsv_102_split_container",
-				"targetControl": "appCont",
-				"targetAggregation": "pages",
-			
-				"subroutes": [{
-					"pattern": "northwind/",
+			"routes": [
+				{
+					"pattern": "",
+					"name": "choice",
+					"view": "zjsv_102_view_01",
+					"targetAggregation": "pages"
+				},
+				{
+					"pattern": "northwind",
 					"name": "northwind",
-					"view": "zjsv_102_master_01",
-					"targetControl": "splitAppCont",
-					"targetAggregation": "masterPages",
-					"subroutes":[{
-						"pattern": "northwind/",
-						"name": "northwind",
-						"view": "zjsv_102_detail_0101",
-						"targetControl": "splitAppCont",
-						"targetAggregation": "detailPages"
-					},
-					{
-					"pattern": "second",
-					"name": "secondView",
-					"view": "zjsv_102_detail_0102",
-					"targetAggregation": "detailPages"
-					}]
-				}]
-			},
-			{
-            "pattern": ":all*:",
-            "name": "NotFound",
-            "view": "zjs_view_not_found",
-            "targetAggregation": "pages"
-			}]
+					"view": "zjsv_102_split_container",
+					"targetControl": "appCont",
+					"targetAggregation": "pages",
+					"subroutes": [
+						{
+							"pattern": "northwind/",
+							"name": "northwind",
+							"view": "zjsv_102_master_01",
+							"targetControl": "splitAppCont",
+							"targetAggregation": "masterPages",
+							"subroutes": [
+								{
+									"pattern": "northwind/",
+									"name": "northwind",
+									"view": "zjsv_102_detail_0100",
+									"targetControl": "splitAppCont",
+									"targetAggregation": "detailPages"
+								},
+								{
+									"pattern": "nwCustomers",
+									"name": "nwCust",
+									"view": "zjsv_102_detail_0101",
+									"targetControl": "splitAppCont",
+									"targetAggregation": "detailPages"
+								},
+								{
+									"pattern": "second",
+									"name": "secondView",
+									"view": "zjsv_102_detail_0102",
+									"targetAggregation": "detailPages"
+								}
+							]
+						}
+					]
+				},
+				{
+					"pattern": "SAP_ES5",
+					"name": "SAPES5",
+					"view": "zjsv_102_split_container_02",
+					"targetControl": "appCont",
+					"targetAggregation": "pages",
+					"subroutes": [
+							{
+									"pattern": "SAP_ES5/",
+									"name": "SAPES5",
+									"view": "zjsv_102_master_02",
+									"targetControl": "splitAppContES5",
+									"targetAggregation": "masterPages",
+									"subroutes":	[
+											{
+												"pattern": "SAP_ES5/",
+												"name": "SAPES5",
+												"view":"zjsv_102_detail_0200",
+												"targetControl":"splitAppContES5",
+												"targetAggregation":"detailPages"
+											},
+											{
+												"pattern": "SAP_ES5_BP",
+												"name": "SAPES5BP",
+												"view":"zjsv_102_detail_0201",
+												"targetControl":"splitAppContES5",
+												"targetAggregation":"detailPages"
+											}
+										]
+								}
+						]
+					
+				},
+				{
+					"pattern": ":all*:",
+					"name": "NotFound",
+					"view": "zjs_view_not_found",
+					"targetAggregation": "pages"
+				}
+			]
 		}
 	}
 }

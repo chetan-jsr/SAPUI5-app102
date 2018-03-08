@@ -14,13 +14,18 @@ sap.ui.jsview("sapui5.app102.view.zjsv_102_view_01", {
 	 */
 	createContent: function(oController) {
 
-		var oButtonNorthwind = new sap.m.Button("buttonToView02", {
+		var oButtonNorthwind = new sap.m.Button("buttonToNW", {
 			text: "{i18n>ViewNorthwind}", // string
 			press: [oController.onSelNorthwind, oController]
 		});
+		
+		var oButtonSAPES5 = new sap.m.Button("buttonToES5", {
+			text : "{i18n>ToES5View}",
+			press: [oController.onSelSAPES5, oController]
+		});
 
 		var oFooter = new sap.m.Bar("footerView01", {
-			contentLeft: [], // sap.ui.core.Control
+			contentLeft: [oButtonSAPES5], // sap.ui.core.Control
 			contentMiddle: [], // sap.ui.core.Control
 			contentRight: [oButtonNorthwind] // sap.ui.core.Control
 		});

@@ -22,12 +22,12 @@
     {
       "templateId": "ui5template.basicSAPUI5ApplicationComponent",
       "templateVersion": "1.4.0",
-      "dateTimeStamp": "Wed, 07 Mar 2018 03:09:16 GMT"
+      "dateTimeStamp": "Wed, 07 Mar 2018 18:37:50 GMT"
     },
     {
       "templateId": "servicecatalog.connectivityComponent",
       "templateVersion": "0.0.0",
-      "dateTimeStamp": "Tue, 06 Mar 2018 17:14:34 GMT"
+      "dateTimeStamp": "Wed, 07 Mar 2018 17:33:47 GMT"
     }
   ],
   "translation": {
@@ -50,7 +50,7 @@
     "blockPushLevel": "Error"
   },
   "mockpreview": {
-    "mockUri": "/Northwind/V2/Northwind/Northwind.svc",
+    "mockUri": "/Gateway_SAPES5/sap/opu/odata/IWBEP/GWDEMO",
     "metadataFilePath": "",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
